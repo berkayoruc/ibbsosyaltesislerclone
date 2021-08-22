@@ -18,7 +18,7 @@ class PopupCard extends StatelessWidget {
     var width = MediaQuery.of(context).size.width * 0.90;
     var height = MediaQuery.of(context).size.height * 0.15;
     return Container(
-      margin: const EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 20),
       constraints: BoxConstraints(maxWidth: width, maxHeight: height),
       decoration: BoxDecoration(
           color: Colors.white,
@@ -58,7 +58,10 @@ class PopupCard extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
         ),
         onTap: () => Navigator.of(context).push(MaterialPageRoute(
-          builder: (BuildContext context) => TesisDetail(),
+          builder: (BuildContext context) => TesisDetail(
+            name: tesisMarker.name,
+            address: tesisMarker.address,
+          ),
         )),
       ),
       // Card(
