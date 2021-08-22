@@ -3,12 +3,14 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
 import 'package:latlong2/latlong.dart';
 
-import 'marker_future.dart';
+import 'marker_layer.dart';
 import 'tile_layer.dart';
 
 class Map extends StatelessWidget {
+  final dynamic data;
   const Map({
     Key key,
+    this.data,
   }) : super(key: key);
 
   @override
@@ -28,10 +30,15 @@ class Map extends StatelessWidget {
           onTap: (_) => _popupLayerController.hidePopup()),
       children: [
         TileLayerWid(),
-        MarkerFuture(
+        MarkerLayerWid(
+          data: data,
           popupcontroller: _popupLayerController,
           mapcontroller: _mapController,
         )
+        // MarkerFuture(
+        //   popupcontroller: _popupLayerController,
+        //   mapcontroller: _mapController,
+        // )
       ],
     );
   }

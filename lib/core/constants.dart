@@ -7,5 +7,5 @@ class Constants {
 
 class TextStyleConstants {
   static final appBarTitle =
-      GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.w600);
+      GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.w500,);
 }

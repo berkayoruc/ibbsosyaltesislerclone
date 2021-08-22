@@ -10,7 +10,8 @@ class TileLayerWid extends StatelessWidget {
   Widget build(BuildContext context) {
     return TileLayerWidget(
       options: TileLayerOptions(
-          urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+          urlTemplate:
+              "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
           subdomains: ['a', 'b', 'c'],
           maxZoom: 18),
     );

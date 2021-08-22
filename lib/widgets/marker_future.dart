@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ibbsosyaltesisleri/core/constants.dart';
 import 'package:ibbsosyaltesisleri/widgets/popup_card.dart';
 import 'package:ibbsosyaltesisleri/widgets/tesis_marker.dart';
 import 'package:latlong2/latlong.dart';
@@ -31,7 +32,9 @@ class MarkerFuture extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      CircularProgressIndicator(),
+                      CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                              Constants.primaryColor)),
                       Padding(
                           padding: EdgeInsets.only(top: 24),
                           child: Text('Yükleniyor...',
@@ -56,18 +59,18 @@ class MarkerFuture extends StatelessWidget {
                 return PopupMarkerLayerWidget(
                   options: PopupMarkerLayerOptions(
                       markers: snapshot.data
-                          .map<TesisMarker>(
-                              (x) => TesisMarker(x.name, x.address,
-                                  width: 50,
-                                  height: 50,
-                                  anchorPos: AnchorPos.align(AnchorAlign.top),
-                                  builder: (ctx) => Image.asset('assets/pin.png') ,
-                                  // Icon(
-                                  //       Icons.place,
-                                  //       color: Constants.primaryColor,
-                                  //       size: 30,
-                                  //     ),
-                                  point: LatLng(x.lat, x.lon)))
+                          .map<TesisMarker>((x) => TesisMarker(
+                              x.name, x.address,
+                              width: 50,
+                              height: 50,
+                              anchorPos: AnchorPos.align(AnchorAlign.top),
+                              builder: (ctx) => Image.asset('assets/pin.png'),
+                              // Icon(
+                              //       Icons.place,
+                              //       color: Constants.primaryColor,
+                              //       size: 30,
+                              //     ),
+                              point: LatLng(x.lat, x.lon)))
                           .toList(),
                       popupSnap: PopupSnap.mapBottom,
                       popupController: popupcontroller,
